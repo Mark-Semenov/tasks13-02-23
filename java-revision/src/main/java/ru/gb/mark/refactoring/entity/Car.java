@@ -4,18 +4,21 @@ import lombok.Data;
 import ru.gb.mark.refactoring.service.Act;
 
 @Data
-// made it non-abstract POJO class
-public class Car {
+public class Car implements Comparable<Car> {
 
     private String color;
     private String name;
-
-    //Use composition
-    private Engine engine; //created abstract Engine
-    private Act act; //link to any action, let to choose different strategy
+    private int id;
+    private Engine engine;
+    private Act act;
 
     public Car setAct(Act act) {
         this.act = act;
+        return this;
+    }
+
+    public Car setId(int id) {
+        this.id = id;
         return this;
     }
 
@@ -34,35 +37,10 @@ public class Car {
         return this;
     }
 
-//    protected void start() {
-//        System.out.println("Car starting");
-//    }
 
-//    abstract void open();
-
-
-//    public Engine getEngine() {
-//        return engine;
-//    }
-//
-//    public void setEngine(Engine engine) {
-//        this.engine = engine;
-//    }
-//
-//    public String getColor() {
-//        return color;
-//    }
-//
-//    public void setColor(String color) {
-//        this.color = color;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
+    @Override
+    public int compareTo(Car o) {
+        return Integer.compare(getId(), o.getId());
+    }
 
 }
