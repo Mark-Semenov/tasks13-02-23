@@ -1,4 +1,4 @@
-package ru.gb.mark.lesson5.entity;
+package ru.gb.mark.lesson7.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -12,11 +12,6 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String mark;
+    private Integer age;
 
-
-    public Student setName(String name) {
-        this.name = name;
-        return this;
-    }
 }
