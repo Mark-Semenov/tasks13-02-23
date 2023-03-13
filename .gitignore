@@ -29,3 +29,5 @@ build/
 gradlew
 *.DS_Store
 temp/
+demo.mv.db
+demo.trace.db
